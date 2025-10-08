@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HEAVEN ADVANCED RP</title>
+  <meta name="description" content="HEAVEN ADVANCED RP - Server FiveM Roleplay românesc" />
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ha_blue: {
+              50: '#f2f9ff',
+              100: '#e6f3ff',
+              200: '#bfe6ff',
+              300: '#99d8ff',
+              400: '#66c9ff',
+              500: '#33bbff',
+              600: '#1aa3e6',
+              700: '#137fbb',
+              800: '#0e5f91',
+              900: '#083d66'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .hero-bg {
+      background-image: linear-gradient(180deg, rgba(3,105,161,0.12), rgba(3,105,161,0.06)), url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0b1020] text-slate-100 font-sans">
+  <header class="w-full bg-gradient-to-b from-[#061021] via-transparent to-transparent sticky top-0 z-50 shadow">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-ha_blue-400 to-ha_blue-600 flex items-center justify-center shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7 12a5 5 0 0110 0 7 7 0 11-14 0 5 5 0 014-5z"/></svg>
+        </div>
+        <div>
+          <div class="text-lg font-bold leading-none">HEAVEN ADVANCED RP</div>
+          <div class="text-xs text-slate-400 -mt-0.5">Roleplay · Comunitate · 24/7</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#home" class="hover:text-ha_blue-300 transition">Acasă</a>
+        <a href="#despre" class="hover:text-ha_blue-300 transition">Despre</a>
+        <a href="#echipa" class="hover:text-ha_blue-300 transition">Staff</a>
+        <a href="#shop" class="hover:text-ha_blue-300 transition">Shop</a>
+        <a href="#regulament" class="hover:text-ha_blue-300 transition">Regulament</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a id="serverStatusBtn" href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-slate-800/60 border border-slate-700 hover:border-ha_blue-400 transition text-sm">
+          <span id="server-dot" class="w-3 h-3 rounded-full bg-yellow-400 shadow-sm"></span>
+          <span id="server-text">Se verifică...</span>
+        </a>
+        <a href="/login" class="px-4 py-2 rounded-md bg-ha_blue-500 hover:bg-ha_blue-600 transition font-medium text-slate-900">Conectare</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="hero-bg pt-12 pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="py-12">
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">HEAVEN <span class="text-ha_blue-300">ADVANCED</span> RP</h1>
+          <p class="text-slate-300 text-lg max-w-xl mb-6">HEAVEN ADVANCED RP — server FiveM Roleplay concentrat pe realism, comunitate activă și experiențe memorabile. Intră acum și scrie-ți povestea în oraș.</p>
+
+          <div class="flex gap-4">
+            <a href="#" class="inline-flex items-center gap-3 bg-ha_blue-500 hover:bg-ha_blue-600 text-slate-900 px-6 py-3 rounded-md font-semibold shadow-lg transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Conectează-te la server
+            </a>
+            <a href="#despre" class="inline-flex items-center gap-3 px-6 py-3 rounded-md border border-slate-700 hover:border-ha_blue-400 transition bg-transparent text-sm">Despre server</a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-4 max-w-sm">
+            <div class="p-4 rounded-md bg-[#071028]/60 border border-slate-700">
+              <div class="text-xs text-slate-400">Jucători activi</div>
+              <div id="players-count" class="text-2xl font-bold">—</div>
+            </div>
+            <div class="p-4 rounded-md bg-[#071028]/60 border border-slate-700">
+              <div class="text-xs text-slate-400">Timp de online</div>
+              <div class="text-2xl font-bold">24/7</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="py-12">
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+            <img alt="HEAVEN RP preview" src="https://images.unsplash.com/photo-1516569422877-9e4a5b6a3d84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" class="w-full h-80 object-cover" />
+            <div class="p-6 bg-[#071028]">
+              <h3 class="text-xl font-semibold mb-2">Server Preview</h3>
+              <p class="text-slate-400 mb-4">O privire rapidă asupra atmosferei serverului: roleplay realist, comunitate activă și evenimente regulate.</p>
+              <div class="flex gap-3">
+                <a href="#shop" class="px-4 py-2 rounded-md bg-ha_blue-500 hover:bg-ha_blue-600 text-slate-900 font-medium">Magazin</a>
+                <a href="#regulament" class="px-4 py-2 rounded-md border border-slate-700 hover:border-ha_blue-400">Reguli</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <section id="despre" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="bg-[#071028]/50 p-8 rounded-2xl border border-slate-800 shadow-inner">
+      <h2 class="text-2xl font-bold mb-4">Despre HEAVEN ADVANCED RP</h2>
+      <p class="text-slate-300 mb-4">HEAVEN ADVANCED RP este un server FiveM Roleplay românesc conceput pentru jucători care caută experiențe realiste și o comunitate prietenoasă. Avem reguli clare, staff dedicat și evenimente regulate pentru a menține lumea vie.</p>
+      <ul class="grid md:grid-cols-3 gap-4 text-slate-300">
+        <li class="p-4 bg-[#08132a]/60 rounded-md border border-slate-700">Roleplay realist</li>
+        <li class="p-4 bg-[#08132a]/60 rounded-md border border-slate-700">Evenimente săptămânale</li>
+        <li class="p-4 bg-[#08132a]/60 rounded-md border border-slate-700">Sisteme economice personalizate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="echipa" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-6">Echipa (Staff)</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="p-4 rounded-lg bg-[#071028]/40 border border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 bg-gradient-to-tr from-ha_blue-400 to-ha_blue-600 rounded-full flex items-center justify-center text-slate-900 font-bold">A</div>
+          <div>
+            <div class="font-semibold">Admin1</div>
+            <div class="text-xs text-slate-400">Owner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[#071028]/40 border border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 bg-gradient-to-tr from-ha_blue-400 to-ha_blue-600 rounded-full flex items-center justify-center text-slate-900 font-bold">M</div>
+          <div>
+            <div class="font-semibold">Mod1</div>
+            <div class="text-xs text-slate-400">Moderator</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[#071028]/40 border border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 bg-gradient-to-tr from-ha_blue-400 to-ha_blue-600 rounded-full flex items-center justify-center text-slate-900 font-bold">S</div>
+          <div>
+            <div class="font-semibold">Support1</div>
+            <div class="text-xs text-slate-400">Support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[#071028]/40 border border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 bg-gradient-to-tr from-ha_blue-400 to-ha_blue-600 rounded-full flex items-center justify-center text-slate-900 font-bold">E</div>
+          <div>
+            <div class="font-semibold">Event1</div>
+            <div class="text-xs text-slate-400">Event Manager</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="bg-[#071028]/40 p-8 rounded-2xl border border-slate-800">
+      <h2 class="text-2xl font-bold mb-4">Magazin</h2>
+      <p class="text-slate-300 mb-6">Magazin integrat pentru pachete VIP, maşini şi alte beneficii. Momentan shop-ul este un placeholder — putem integra Tebex (recomandat) sau WooCommerce + plăţi.</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-lg bg-[#08142b] border border-slate-700">
+          <div class="text-sm text-slate-400">Pachet</div>
+          <div class="text-xl font-bold">VIP Bronze</div>
+          <div class="mt-3 text-slate-300">Beneficii: spawn item, priorităţi la coadă</div>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-2 rounded-md border border-slate-700">Detalii</button>
+            <button class="px-3 py-2 rounded-md bg-ha_blue-500 text-slate-900">Cumpără</button>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-lg bg-[#08142b] border border-slate-700">
+          <div class="text-sm text-slate-400">Pachet</div>
+          <div class="text-xl font-bold">VIP Silver</div>
+          <div class="mt-3 text-slate-300">Beneficii: acces vehicule speciale</div>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-2 rounded-md border border-slate-700">Detalii</button>
+            <button class="px-3 py-2 rounded-md bg-ha_blue-500 text-slate-900">Cumpără</button>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-lg bg-[#08142b] border border-slate-700">
+          <div class="text-sm text-slate-400">Pachet</div>
+          <div class="text-xl font-bold">VIP Gold</div>
+          <div class="mt-3 text-slate-300">Beneficii: package complet + cosmetic</div>
+          <div class="mt-4 flex gap-2">
+            <button class="px-3 py-2 rounded-md border border-slate-700">Detalii</button>
+            <button class="px-3 py-2 rounded-md bg-ha_blue-500 text-slate-900">Cumpără</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulament" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-4">Regulament - rezumat</h2>
+    <div class="bg-[#071028]/40 p-6 rounded-lg border border-slate-800 text-slate-300">
+      <ol class="list-decimal pl-5 space-y-2">
+        <li>Respectă roleplay-ul și nu face metagaming.</li>
+        <li>Fără abuzuri, fără griefing, fără exploatare de bug-uri.</li>
+        <li>Urmărește instrucțiunile staff-ului — deciziile lor sunt finale în dispute.</li>
+        <li>Folosește un limbaj civilizat; abuzul verbal poate duce la sancțiuni.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="mt-12 pb-10">
+    <div class="max-w-6xl mx-auto px-6 text-slate-400 text-sm">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© <span id="year"></span> HEAVEN ADVANCED RP — Toate drepturile rezervate</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-ha_blue-300">Termeni</a>
+          <a href="#" class="hover:text-ha_blue-300">Confidențialitate</a>
+          <a href="#" class="hover:text-ha_blue-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const SERVER_STATUS_URL = 'https://replace-with-your-endpoint.example/api/status';
+
+    async function fetchServerStatus(){
+      try {
+        const res = await fetch(SERVER_STATUS_URL);
+        if(!res.ok) throw new Error('Network response not ok');
+        const data = await res.json();
+        const dot = document.getElementById('server-dot');
+        const text = document.getElementById('server-text');
+        const players = document.getElementById('players-count');
+
+        if(data.online){
+          dot.classList.remove('bg-yellow-400');
+          dot.classList.add('bg-green-400');
+          text.textContent = data.players ? `${data.players} online` : 'Online';
+          players.textContent = data.players ?? '—';
+        } else {
+          dot.classList.remove('bg-yellow-400');
+          dot.classList.add('bg-red-500');
+          text.textContent = 'Offline';
+          players.textContent = '0';
+        }
+      } catch (err) {
+        const dot = document.getElementById('server-dot');
+        const text = document.getElementById('server-text');
+        const players = document.getElementById('players-count');
+        dot.classList.remove('bg-yellow-400');
+        dot.classList.add('bg-red-500');
+        text.textContent = 'Eroare';
+        players.textContent = '—';
+        console.warn('Server status fetch error:', err);
+      }
+    }
+
+    fetchServerStatus();
+  </script>
+</body>
+</html>
